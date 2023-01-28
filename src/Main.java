@@ -1,10 +1,11 @@
+import models.Customer;
 import models.Items;
 import models.Order;
 
 import java.util.ArrayList;
 
 public class Main {
-    public static ArrayList<ArrayList> main(String[] args) {
+    public static void main(String[] args) {
 
         ArrayList<String> momo = new ArrayList<>();
         ArrayList<String> chowmein = new ArrayList<>();
@@ -102,17 +103,35 @@ public class Main {
         order1.add(momo.get(0));
         order1.add(momo.get(2));
         order1.add(pizza.get(4));
+        order1.add(drinks.get(0));
+        order1.add(drinks.get(0));
 
-        Order o1 = new Order(breakfast, lunch, snacks, non_veg, veg, drinks, momo, chowmein, pizza, burger, thali_set, toast, order1);
+        Order o1 = new Order(order1);
 
-        System.out.println("-------Menu--------");
-        System.out.println("Breakfast: "+breakfastItems());
-    }
+        Customer c1 = new Customer(order1, "Logan", 850);
 
-    public static ArrayList<ArrayList> breakfastItems() {
-        for(ArrayList singleBreakfast: breakfast){
+
+
+        System.out.println("\n\n\n--------------------------------Menu--------------------------------");
+        System.out.println("Breakfast: ");
+        for (ArrayList singleBreakfast: breakfast){
             System.out.println(singleBreakfast);
         }
-    return breakfastItems();
+        System.out.println("\nLunch: ");
+        for (ArrayList singleLunch: lunch){
+            System.out.println(singleLunch);
+        }
+        System.out.println("\nSnacks: ");
+        for (ArrayList singleSnacks: snacks){
+            System.out.println(singleSnacks);
+        }
+        System.out.println("\n\n\n---------------------------------Bill---------------------------------");
+        System.out.println(c1.getName()+"'s orders:\n");
+        for (String singleOrder: order1){
+            System.out.println(singleOrder);
+        }
+        System.out.println("-------------------------------------------------------------------------------------");
+        c1.getInvoice();
     }
+
 }

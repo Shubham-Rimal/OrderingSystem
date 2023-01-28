@@ -14,6 +14,9 @@ public class MainCategory {
     }
 
     public ArrayList<ArrayList> getBreakfast() {
+        for (ArrayList<ArrayList> singleBreakfast: Breakfast){
+            System.out.println(singleBreakfast);
+        }
         return Breakfast;
     }
 
